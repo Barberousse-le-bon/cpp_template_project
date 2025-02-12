@@ -1,53 +1,42 @@
-
 #auth : HYOT lucas
-
-
-
 
 #!/bin/bash
 
-
-
-
 # create the project folder
-
 
 read -p "Project name : " project_name
 mkdir $project_name
 cd $project_name
 
-
 # git initialization
 
 git init
-
 git config user.name
 git config user.email
 
-
-
 # copy necessary files
 
-cp /home/lucas/script/createProject/CMakeLists.txt .
-cp /home/lucas/script/createProject/.gitignore .
-cp /home/lucas/script/createProject/main.cpp .
+cp /home/lucas/script/create_project/CMakeLists.txt .
+cp /home/lucas/script/create_project/.gitignore .
+#cp /home/lucas/script/create_project/main.cpp .
 
-#get the mail and the name from git
+#get the mail and the name from git and date
 
 name=$(git config user.name)
-mail=$(git config user.mail)
-
+mail=$(git config user.email)
+datetime=$(date +"%d-%m-%Y at %H:%M:%S")
 
 #create the head of the main file
 
 echo "/* Auth : " $name >> header.txt
-echo $name >> header.txt
+echo "Mail : " $mail >> header.txt
 echo  >> header.txt
-echo "Mail : " >> header.txt
-echo $mail >> header.txt
-echo  >> header.txt
-date >> header.txt
+echo $datetime >> header.txt
+echo >> header.txt
 echo "*/" >> header.txt
+pwd
+cat header.txt /home/lucas/script/create_project/main.cpp >> main.cpp
+rm header.txt
 
 # cmake
 
