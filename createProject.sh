@@ -40,14 +40,14 @@ mail=$(git config user.mail)
 
 #create the head of the main file
 
-text_before_date="/\*" #AUTH : $name"\nMAIL : $mail"\nDATE : "
-text_after_date="*/"
-
-
-#echo -e $text_before_date
-#add the head to main
-
-#./../../entete/entete2.sh $text_before_date $text_after_date main.cpp
+echo "/* Auth : " $name >> header.txt
+echo $name >> header.txt
+echo  >> header.txt
+echo "Mail : " >> header.txt
+echo $mail >> header.txt
+echo  >> header.txt
+date >> header.txt
+echo "*/" >> header.txt
 
 # cmake
 
