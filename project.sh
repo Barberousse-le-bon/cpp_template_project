@@ -18,19 +18,23 @@ git config user.email
 
 cp /home/lucas/script/create_project/CMakeLists.txt .
 cp /home/lucas/script/create_project/.gitignore .
-#cp /home/lucas/script/create_project/main.cpp .
+
 
 #get the mail and the name from git and date
 
 name=$(git config user.name)
 mail=$(git config user.email)
-datetime=$(date +"%d/%m/%Y at %H:%M:%S")
+datetime=$(date +"%d-%m-%Y at %H:%M:%S")
 
 #create the head of the main file
 
 
+source /home/lucas/script/create_project/header.sh -c "$name" "$mail"
+
+#create the cpp file
+
 cat header.txt /home/lucas/script/create_project/main.cpp >> main.cpp
-rm header.txt
+source /home/lucas/script/create_project//header.sh -d
 
 # cmake
 
@@ -54,6 +58,6 @@ git commit -m "auto init"
 # vs code
 
 
-code .
+#code .
 
 
