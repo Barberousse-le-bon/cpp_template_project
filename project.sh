@@ -48,6 +48,9 @@ fi
 if [ "$1" = "--class" ];
 then
     read -p "Class name : " class_name
+    mkdir $class_name
+    cd $class_name
+
 
     #get the mail and the name from git
     name=$(git config user.name)
@@ -55,6 +58,12 @@ then
 
     #create the head of the main file
     source /home/lucas/script/create_project/header.sh -c "$name" "$mail"
+    cat header.txt /home/lucas/script/create_project/Class.h >> $class_name.h
+    cat header.txt /home/lucas/script/create_project/Class.cpp >> $class_name.cpp
 
+    source /home/lucas/script/create_project//header.sh -d
+
+
+    
 
 fi

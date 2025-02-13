@@ -1,13 +1,13 @@
 #ifndef CLASSE_H
 #define CLASSE_H
 
-class Classe {
+class Class {
 public:
     // Constructor
-    Classe();
+    Class();
 
     // Destructor
-    ~Classe();
+    ~Class();
 
     // Méthods
 };

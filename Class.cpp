@@ -1,18 +1,18 @@
 #include "Class.h"
 
 
-class Classe {
+class Class {
     
 private:
     
 public:
     // Constructor
-    Classe() {
+    Class() {
         
     }
 
     // Destructor
-    ~Classe() {
+    ~Class() {
         
     }
 
