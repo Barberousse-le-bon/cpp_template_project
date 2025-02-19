@@ -44,12 +44,15 @@ then
 
     # vs code
     code .
-fi
-if [ "$1" = "--class" ];
+
+elif [ "$1" = "--class" ];
 then
     read -p "Class name : " class_name
-    mkdir $class_name
-    cd $class_name
+    class_name_capitalized=$(echo "$class_name" | sed 's/^./\U&/')
+
+
+    mkdir $class_name_capitalized
+    cd $class_name_capitalized
 
 
     #get the mail and the name from git
@@ -58,12 +61,16 @@ then
 
     #create the head of the main file
     source /home/lucas/script/create_project/header.sh -c "$name" "$mail"
-    cat header.txt /home/lucas/script/create_project/Class.h >> $class_name.h
-    cat header.txt /home/lucas/script/create_project/Class.cpp >> $class_name.cpp
+    cat header.txt /home/lucas/script/create_project/Class.h >> $class_name_capitalized.h
+    cat header.txt /home/lucas/script/create_project/Class.cpp >> $class_name_capitalized.cpp
 
     source /home/lucas/script/create_project//header.sh -d
 
-
+    sed -i "s/Class/$class_name_capitalized/g" $class_name_capitalized.cpp 
+    sed -i "s/Class/$class_name_capitalized/g" $class_name_capitalized.h 
     
-
+else
+    echo "usage :"
+    echo "      --create : to create a new project"
+    echo "      --class : to create a class"
 fi
