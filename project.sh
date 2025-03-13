@@ -24,7 +24,7 @@ then
 
     #update the cMakelists.txt
 
-    #TODO
+    sed -i "s/DESCRIPTION \"to fill\"/DESCRIPTION \"$project_name\"/g" CMakeLists.txt
 
     #get the mail and the name from git
     name=$(git config user.name)

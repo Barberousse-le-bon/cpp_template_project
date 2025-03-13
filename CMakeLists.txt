@@ -16,7 +16,7 @@ cmake_minimum_required(VERSION 3.15)
 # set the project name and version
 project(app
         VERSION 0.0.1
-	    DESCRIPTION "A first example project with CMAKE and C++"
+	    DESCRIPTION "to fill"
 	    LANGUAGES CXX)
 
 # set the C++ standard to C++17
