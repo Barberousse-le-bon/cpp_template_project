@@ -23,14 +23,15 @@ Clone the repository and make the script executable:
 
 ```bash
 git clone https://github.com/Barberousse-le-bon/cpp_template_project.git
-cd project-automation
+cd cpp_template_project
 chmod +x project.sh header.sh main.cpp class.cpp
 ```
 
 ## Usage
+
 ### Create a new project
 ```bash
-./script.sh --create
+./project.sh --create
 ```
 This command will:
 - Ask for the project name
@@ -42,7 +43,7 @@ This command will:
 
 ### Create a new class
 ```bash
-./script.sh --class
+./project.sh --class
 ```
 This command will:
 - Ask for the class name
@@ -50,6 +51,13 @@ This command will:
 - - Add headers to the class files with user information
 - Replace template placeholders with the given class name
 
+### Run the project 
+```bash
+./project.sh --run 
+```
+This command will:
+- Compile the project 
+- run the project 
 
 ## License
 This project is open-source and available under the MIT License.

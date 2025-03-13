@@ -1,6 +1,11 @@
 #!/bin/bash
 #auth : HYOT lucas
 
+# get the current directory 
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+
 if [ "$1" = "--create" ];
 then
     # create the project folder
@@ -14,19 +19,23 @@ then
     git config user.email
 
     # copy necessary files
-    cp /home/lucas/script/create_project/CMakeLists.txt .
-    cp /home/lucas/script/create_project/.gitignore .
+    cp $SCRIPT_DIR/CMakeLists.txt .
+    cp $SCRIPT_DIR//.gitignore .
+
+    #update the cMakelists.txt
+
+    #TODO
 
     #get the mail and the name from git
     name=$(git config user.name)
     mail=$(git config user.email)
 
     #create the head of the main file
-    source /home/lucas/script/create_project/header.sh -c "$name" "$mail"
+    source $SCRIPT_DIR/header.sh -c "$name" "$mail"
 
     #create the cpp file
-    cat header.txt /home/lucas/script/create_project/main.cpp >> main.cpp
-    source /home/lucas/script/create_project//header.sh -d
+    cat header.txt $SCRIPT_DIR/main.cpp >> main.cpp
+    source $SCRIPT_DIR/header.sh -d
 
     # cmake
     cmake -S . -B build  	# initialize the makefile
@@ -43,7 +52,7 @@ then
 
 
     # vs code
-    code .
+    #code .
 
 elif [ "$1" = "--class" ];
 then
@@ -60,15 +69,23 @@ then
     mail=$(git config user.email)
 
     #create the head of the main file
-    source /home/lucas/script/create_project/header.sh -c "$name" "$mail"
-    cat header.txt /home/lucas/script/create_project/Class.h >> $class_name_capitalized.h
-    cat header.txt /home/lucas/script/create_project/Class.cpp >> $class_name_capitalized.cpp
+    source header.sh -c "$name" "$mail"
+    cat header.txt Class.h >> $class_name_capitalized.h
+    cat header.txt Class.cpp >> $class_name_capitalized.cpp
 
-    source /home/lucas/script/create_project//header.sh -d
+    source header.sh -d
 
     sed -i "s/Class/$class_name_capitalized/g" $class_name_capitalized.cpp 
     sed -i "s/Class/$class_name_capitalized/g" $class_name_capitalized.h 
     
+elif [ "$1" = "--run" ];
+then
+
+    #compile and run the project
+
+    cmake --build build
+    ./bin/app
+
 else
     echo "usage :"
     echo "      --create : to create a new project"
