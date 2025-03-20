@@ -3,6 +3,8 @@
 ## Description
 This script automates the creation and management of C++ projects and classes. It sets up a project structure, initializes Git, and configures necessary files such as `CMakeLists.txt` and `.gitignore`. Additionally, it allows for easy class creation.
 
+**/!\ WORK IN PROGRESS** 
+
 ## Features
 - **Create a new project** with Git initialization and CMake setup
 - **Generate C++ class files** with proper formatting
