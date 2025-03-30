@@ -18,7 +18,7 @@ Make sure you have the required dependencies installed:
 
 ```bash
 sudo apt update
-sudo apt install -y git cmake code gcc
+sudo apt install -y git cmake code g++
 ```
 
 Clone the repository and make the script executable:
@@ -50,7 +50,7 @@ This command will:
 This command will:
 - Ask for the class name
 - Create class files (`.h` and `.cpp`)
-- - Add headers to the class files with user information
+- Add headers to the class files with user information
 - Replace template placeholders with the given class name
 
 ### Run the project 
