@@ -69,11 +69,11 @@ then
     mail=$(git config user.email)
 
     #create the head of the main file
-    source header.sh -c "$name" "$mail"
-    cat header.txt Class.h >> $class_name_capitalized.h
-    cat header.txt Class.cpp >> $class_name_capitalized.cpp
+    source $SCRIPT_DIR/header.sh -c "$name" "$mail"
+    cat header.txt $SCRIPT_DIR/Class.h >> $class_name_capitalized.h
+    cat header.txt $SCRIPT_DIR/Class.cpp >> $class_name_capitalized.cpp
 
-    source header.sh -d
+    source $SCRIPT_DIR/header.sh -d
 
     sed -i "s/Class/$class_name_capitalized/g" $class_name_capitalized.cpp 
     sed -i "s/Class/$class_name_capitalized/g" $class_name_capitalized.h 
@@ -90,4 +90,5 @@ else
     echo "usage :"
     echo "      --create : to create a new project"
     echo "      --class : to create a class"
+    echo "      --run : to run the current project"
 fi
