@@ -3,7 +3,11 @@
 
 # get the current directory 
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_PATH="$(realpath "${BASH_SOURCE[0]}")"
+SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
+
+
+echo "SCRIPT_DIR = $SCRIPT_DIR"
 
 
 if [ "$1" = "--create" ];
